@@ -1,0 +1,19 @@
+services:
+  email_contact.get_data_node_list:
+    class: Drupal\email_contact\GetUser
+    arguments: ['@database']
+
+  email_contact.my_cache:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [my_cache]
+
+  custom_events_subscriber:
+    # Event subscriber class that will listen for the events.
+    class: '\Drupal\email_contact\EventSubscriber\CustomEventSubscriber'
+    # Tagged as an event_subscriber to register this subscriber with the event_dispatch service.
+    arguments: ['@messenger', '@plugin.manager.mail', '@config.factory']
+    tags:
+      - { name: 'event_subscriber' }

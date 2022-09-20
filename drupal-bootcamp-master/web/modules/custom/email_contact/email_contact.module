@@ -1,0 +1,30 @@
+<?php
+
+
+/**
+* Implements hook_mail().
+*/
+function email_contact_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+  case 'contact_user':
+    $message['from'] = \Drupal::config('system.site')->get('mail');
+    $message['subject'] = t('fome  submited: @title', array('@title' => $params['this is contact form']), $options);
+    $message['body'][] = $params['message'];
+    break;
+ }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function email_contact_theme($existing, $type, $theme, $path) {
+  return [
+    'my_template' => [
+      'variables' => ['test_var' => NULL],
+    ],
+  ];
+}

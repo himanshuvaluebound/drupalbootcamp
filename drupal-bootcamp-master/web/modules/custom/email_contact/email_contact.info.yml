@@ -1,0 +1,5 @@
+name: email contact
+description: this is contact Form
+type: module
+package: custom
+core_version_requirement: ^8 || ^9

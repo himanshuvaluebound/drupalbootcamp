@@ -1,0 +1,14 @@
+uuid: f00d9d48-f7c1-4636-a08c-718d974fc6c5
+name: d8traning
+mail: himanshu.j@valuebound.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE

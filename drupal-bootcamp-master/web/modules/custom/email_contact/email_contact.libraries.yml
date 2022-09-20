@@ -1,0 +1,9 @@
+custom-lib:
+  version: 1.x
+  css:
+    layout:
+      css/custom-layout.css: {}
+    theme:
+      css/custom-theme.css: {}
+  js:
+    js/custom-lib.js: {}

@@ -1,0 +1,51 @@
+<?php
+
+
+/**
+ * Creates the tables using the schema API.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function email_contact_schema() {
+  $schema['custom_contact_mail'] = [
+    'description' => 'This is form custom contact form for used.',
+    'fields' => [
+      'fid' => [
+        'description' => 'The file id entity ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'description' => 'TODO: thuis is Title field!',
+				'type' => 'varchar_ascii',
+				'length' => 64,
+				'not null' => TRUE,
+				'default' => '',
+      ],
+      'fullname' => [
+        'type' => 'varchar_ascii',
+				'length' => 64,
+				'not null' => TRUE,
+				'default' => '',
+      ],
+			'test_checkboxes' => [
+        'type' => 'varchar_ascii',
+				'length' => 64,
+				'not null' => TRUE,
+				'default' => '',
+      ],
+			'email' => [
+        'description' => 'TODO:  this email field!',
+				'type' => 'varchar_ascii',
+				'length' => 250,
+				'not null' => TRUE,
+				'default' => '',
+      ],
+    ],
+    'primary key' => ['fid'],
+  ];
+  return $schema;
+}

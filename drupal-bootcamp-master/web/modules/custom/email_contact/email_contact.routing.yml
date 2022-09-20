@@ -1,0 +1,97 @@
+email_contact.emailForm:
+  path: 'contact-form'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\EmailController::contact_form'
+    _tilte: 'contact form'
+  requirements:
+    _permission: 'access content'
+
+email_contact.ajaxForm:
+  path: 'ajax-form'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\EmailController::simpal_ajax_form'
+    _tilte: 'simple form'
+  requirements:
+    _permission: 'access content'
+
+email_contact.table:
+  path: 'contact-form-table'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\EmailController::display'
+    _tilte: 'contact form list'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+email_contact.delete_list:
+  path: 'contact/delete/{id}'
+  defaults:
+    _form: '\Drupal\email_contact\Form\DeleteUser'
+    _title: 'DeleteUser'
+  requirements:
+    _access: 'TRUE'
+
+email_contact.nodelist:
+  path: 'nodelist/{id}'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\EmailController::nodelist'
+    _title: 'All Node List'
+  requirements:
+    _permission: 'access content'
+
+email_contact.get_node_api:
+  path: '/get-rest-list'
+  defaults:
+    _title: 'api'
+    _controller: '\Drupal\email_contact\Controller\EmailController::get_node_api'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+
+email_contact.cache:
+  path: '/user-cache'
+  defaults:
+    -tite: 'user cache'
+    _controller: 'Drupal\email_contact\Controller\CacheCont::useraccess'
+    _title: 'Cache'
+  requirements:
+    _permission: 'access content'
+
+email_contact.contact_list:
+  path: '/contact/listing'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\ContactList::listing'
+    _title: 'contact  Data Listing'
+  requirements:
+    _permission: 'contact  access permission'
+  options:
+    no_cache: 'TRUE'
+
+email_contact.get_db_connection:
+  path: '/get-connection'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\MakeConnection::MakeConnection'
+    _title: 'Get Connection'
+  requirements:
+    _access: 'TRUE'
+
+email_contact.get_user_content:
+  path: '/get-content/{role}'
+  defaults:
+    _controller: '\Drupal\email_contact\Controller\GetContent::getContent'
+    _title: 'Get Content'
+  requirements:
+    _access: 'TRUE'
+
+
+
+email_contact.settings_form:
+  path: '/admin/config/email_contact/settings'
+  defaults:
+    _form: '\Drupal\email_contact\Form\ApiSettingsForm'
+    _title: 'config form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: 'TRUE'
